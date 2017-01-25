@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UsersService} from "./users.service";
+import {UsersService} from "./services/users.service";
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import {UsersService} from "./users.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app works!';
+
   currentUser = {};
 
   constructor (private users: UsersService) {

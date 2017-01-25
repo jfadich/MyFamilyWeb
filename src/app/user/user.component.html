@@ -1,3 +1,6 @@
-<p>
+<span>
+  <div *ngIf="showPicture && user.image">
+    <img class="img-responsive img-circle" [src]="user.image[imageSize]">
+  </div>
   {{ user.display_name }}
-</p>
+</span>

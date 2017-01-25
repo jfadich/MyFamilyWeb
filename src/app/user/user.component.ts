@@ -8,6 +8,8 @@ import {Component, OnInit, Input} from '@angular/core';
 export class UserComponent implements OnInit {
 
   @Input() user;
+  @Input() showPicture = true;
+  @Input() imageSize = 'small';
 
   constructor() {
 

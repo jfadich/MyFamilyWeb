@@ -1,5 +1,10 @@
-<h1>
-  {{title}}
+<top-nav [user]="currentUser"></top-nav>
 
-  <user [user]="currentUser"></user>
-</h1>
+
+<div class="container">
+  <h1>
+    <user [user]="currentUser" [showPicture]="false"></user>
+  </h1>
+
+  <activity-feed></activity-feed>
+</div>
