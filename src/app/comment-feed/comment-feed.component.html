@@ -1,0 +1,20 @@
+<div>
+
+  <textarea class="form-control" #comment>
+
+  </textarea>
+
+  <button (click)="createComment(comment.value)">Submit</button>
+
+  <div *ngFor="let comment of parent.comments" class="media">
+    <div class="media-left">
+      <user [user]="comment.owner.data"></user>
+      {{ comment.owner.data.display_name}}
+    </div>
+    <div class="media-body">
+      {{ comment.body }}
+    </div>
+
+  </div>
+
+</div>
