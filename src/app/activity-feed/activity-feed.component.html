@@ -1,0 +1,32 @@
+<div *ngFor="let item of feed;">
+
+  <div [ngSwitch]="item.activity_type">
+
+    <div *ngSwitchCase="'created_photo_user'" class="panel panel-default">
+      <div class="panel-heading">
+        <user [user]="item.actor" [showPicture]="false"></user> uploaded a new profile picture.
+
+      </div>
+      <div class="panel-body">
+        <img class="img-responsive img-circle center-block" [src]="item.actor.image['thumb']">
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'created_comment_photo'" class="panel panel-default">
+      <div class="panel-heading">
+        <user [user]="item.actor" [showPicture]="false"></user> commented on {{ item.target.name}}.
+      </div>
+      <div class="panel-body">
+        <p>{{ item.target.body }}</p>
+
+        <img class="img-responsive center-block" [src]="item.target.image['card']">
+
+        <comment-feed [parent]="item.target"></comment-feed>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
