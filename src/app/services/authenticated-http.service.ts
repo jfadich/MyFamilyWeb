@@ -7,6 +7,7 @@ export enum Action { QueryStart, QueryStop }
 
 @Injectable()
 export class AuthenticatedHttp {
+
   baseUrl = 'http://api.myfamily.dev/';
   process: EventEmitter<any> = new EventEmitter<any>();
   authFailed: EventEmitter<any> = new EventEmitter<any>();
@@ -22,7 +23,7 @@ export class AuthenticatedHttp {
     return this._request(RequestMethod.Get, url, null, options);
   }
 
-  public post(url: string, body: string, options?: RequestOptionsArgs): Rx.Observable<Response> {
+  public post(url: string, body, options?: RequestOptionsArgs): Rx.Observable<Response> {
     return this._request(RequestMethod.Post, url, body, options);
   }
 
@@ -42,7 +43,7 @@ export class AuthenticatedHttp {
     return this._request(RequestMethod.Head, url, null, options);
   }
 
-  private _request(method: RequestMethod, url: string, body?: string, options?: RequestOptionsArgs): Rx.Observable<Response> {
+  private _request(method: RequestMethod, url: string, body?, options?: RequestOptionsArgs): Rx.Observable<Response> {
     let requestOptions = new RequestOptions(Object.assign({
       method: method,
       url: this.baseUrl + url,
